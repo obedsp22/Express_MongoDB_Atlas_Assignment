@@ -53,7 +53,7 @@ export default {
 
             alert('Login Successfull! Redirecting to Dashboard.');
             localStorage.setItem('logged_in', true);
-            console.log(validUser.type);
+            console.log(validUser);
             if (this.form.username == validUser.user && this.form.password == validUser.password && validUser.type == 'admin') {
                 location.href = '/administration';
                 localStorage.setItem('admin', true);
