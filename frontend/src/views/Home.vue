@@ -45,22 +45,27 @@ export default {
             }
 
             let validUser = $this.users.find(user => user.user == $this.form.username && user.password == $this.form.password);
-
             if (!validUser) {
                 alert('Invalid Username or Password!');
                 return;
             }
 
+            let currentUser = {
+                user: $this.form.username,
+                type: validUser.type
+            }
+
             alert('Login Successfull! Redirecting to Dashboard.');
             localStorage.setItem('logged_in', true);
-            console.log(validUser);
             if (this.form.username == validUser.user && this.form.password == validUser.password && validUser.type == 'admin') {
                 location.href = '/administration';
                 localStorage.setItem('admin', true);
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
             }
             else {
-                location.href = '/doctor';
+                location.href = '/staff';
                 localStorage.setItem('admin', false);
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
             }
             for (let i in $this.loginForm) {
                 $this.loginForm[i] = '';

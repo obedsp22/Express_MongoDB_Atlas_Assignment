@@ -43,6 +43,8 @@ export default {
         logout() {
             let logged_in = localStorage.getItem('logged_in');
             localStorage.removeItem('logged_in');
+            let currentUser = localStorage.getItem('currentUser');
+            localStorage.removeItem('currentUser');
         },
         checkUser() {
             let admin = localStorage.getItem('admin');
@@ -52,7 +54,7 @@ export default {
             }
             else {
                 this.isAdmin = false;
-                this.link = '/doctor';
+                this.link = '/staff';
             }
         }
     },

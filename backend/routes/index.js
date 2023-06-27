@@ -1,5 +1,5 @@
 var express = require('express');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 var router = express.Router();
 
 const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@mycluster.yvmxqb7.mongodb.net/?retryWrites=true&w=majority`;
@@ -35,5 +35,18 @@ router.post('/login', async (req, res) => {
     }
 });
 
+router.put('/newpassword/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const form = req.body;
+        console.log(id);
+        const query = { _id: new ObjectId(id) };
+        const update = { $set: form };
+        await client.db(dbName).collection('login-credentials').updateOne(query, update);
+        res.end();
+    } catch (err) {
+        console.log(err);
+    }
+});
 
     module.exports = router;
