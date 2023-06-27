@@ -9,6 +9,8 @@ require('dotenv').config(); // This is the line that reads the .env file
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/users');
 var doctorRouter = require('./routes/doctors');
+var patientRouter = require('./routes/patients');
+var appointmentsRouter = require('./routes/appointments');
 
 var app = express();
 app.use(cors()); // This is the line that enables CORS
@@ -22,6 +24,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', userRouter);
 app.use('/doctors', doctorRouter);
+app.use('/patients', patientRouter);
+app.use('/appointments', appointmentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
