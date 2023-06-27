@@ -9,6 +9,7 @@ npm install nodemon
 npx nodemon
 
 # Frontend
+Open a new terminal
 cd frontend
 npm install
 npm run dev
