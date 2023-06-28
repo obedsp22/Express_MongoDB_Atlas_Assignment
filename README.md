@@ -1,6 +1,8 @@
 # Express_MongoDB_Atlas_Assignment
 
-This application consists of two ends, frontend and backend. To run application follow the next steps.
+For this assignment I created an application to manage a clinic. Here the administration can add users, doctors, and patients. The application is able to create appointments for patients with certain doctors. 
+This application consists of two ends, frontend and backend. To run application you need the following installed: node js. 
+Follow the next steps.
 
 # Backend 
 Enter the following code in the terminal
